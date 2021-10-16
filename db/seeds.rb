@@ -2,6 +2,9 @@ require 'faker'
 
 Admin.create!(username: 'admin1', email: 'admin@test.com', password: '123456')
 
+#category
+Category.create!(name: Faker::Name.name)
+
 #Course
 (1..5).each do |i|
   Course.create!(name: Faker::Name.name, category_id: 1)
