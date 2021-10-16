@@ -1,6 +1,6 @@
 require 'faker'
 
-Admin.create!(username: 'admin1', email: 'admin@test.com', password: '123456')
+Admin.create!(username: 'admin', email: 'admin@demo.com', password: '123456')
 
 #category
 Category.create!(name: Faker::Name.name)
