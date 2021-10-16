@@ -41,7 +41,7 @@ class Api::V1::CoursesController < ApplicationController
       render json: { message: 'deleted' }, status: :ok
     else
       error = 'you are not able to delete, students are enrolled this course'
-      render json: { error: error }, status: 422
+      render json: { error: error }, status: :ok
     end
   end
 

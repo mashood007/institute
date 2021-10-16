@@ -34,7 +34,11 @@ class Api::V1::StudentsController < ApplicationController
   end
 
   def destroy
-    Student.destroy(params[:id])
+    if Student.destroy(params[:id])
+      render json: { message: 'failed' }, status: :unprocessable_entity
+    else
+      render json: { errors: 'deleted' }, status: :ok
+    end
   end
 
   def enroll_course
