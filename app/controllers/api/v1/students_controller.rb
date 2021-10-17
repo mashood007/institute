@@ -16,13 +16,7 @@ class Api::V1::StudentsController < ApplicationController
     end
   end
 
-  def show
-    if @student.present?
-      render json: @student, status: :ok
-    else
-      render json: { error: 'not found' }, status: 422
-    end
-  end
+  def show;end
 
   def update
     if @student.update(student_params)
@@ -35,9 +29,9 @@ class Api::V1::StudentsController < ApplicationController
 
   def destroy
     if Student.destroy(params[:id])
-      render json: { message: 'failed' }, status: :unprocessable_entity
+      render json: { message: 'deleted' }, status: :ok
     else
-      render json: { errors: 'deleted' }, status: :ok
+      render json: { errors: 'failed' }, status: :unprocessable_entity
     end
   end
 
