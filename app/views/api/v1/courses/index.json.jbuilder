@@ -5,9 +5,9 @@ json.set! :data do
     json.name course.name
     json.category course.category.name
     json.created_at course.created_at
-    json.total_students students.appeared.size
-    json.exam_passed students.passed.size
-    json.exam_failed students.failed.size
+    json.total_students course.appeared_courses.size
+    json.exam_passed course.passed_courses.size
+    json.exam_failed course.failed_courses.size
   end
 
   json.categories @categories do |category|

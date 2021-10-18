@@ -4,7 +4,10 @@ class Api::V1::CoursesController < ApplicationController
   before_action :find_course, only: [:show, :update, :destroy]
 
   def index
-    @courses = Course.all
+    @courses = Course.includes(
+      :category, :student_courses, :passed_courses,
+      :failed_courses, :appeared_courses
+    )
     @categories = Category.all
   end
 

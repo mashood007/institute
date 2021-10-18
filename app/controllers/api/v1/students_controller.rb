@@ -2,8 +2,9 @@ class Api::V1::StudentsController < ApplicationController
   before_action :authorize_request, only: [:index]
   before_action :find_student, only: [:show, :update, :enroll_course]
   def index
-    @students = Student.all.includes(:student_courses)
-    # render json: @students, status: :ok
+    @students = Student.includes(
+      :student_courses, :passed_students, :failed_students
+    )
   end
 
   def create
