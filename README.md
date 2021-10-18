@@ -14,40 +14,4 @@ Count of used in exam, correct answer, incorrect answer
 
 database
 
-Category ==
-  name
-  has_many courses
-
-Course ==
-  name
-  belongs_to category
-  has_many_and_belongs_to :students
-  belongs_to exam optional ====> need to restructure
-  #######passmark
-
-student ==
-  name
-  rollnumber
-  has_many :cources, through: student_courses 
-
-StudentCourse ==
-  student_id
-  course_id
-  //exam_id
-  exam_result: not_attented/passed/failed => enum
-
-Exam ==
-  QuestionAnswer
-  course_id
-
-QuestionAnswer ==
-  question text
-  answer int
-  options array
-  point
-
-AnswerSheet ==
-  student_course_id
-  answer
-  correct_answer
   
